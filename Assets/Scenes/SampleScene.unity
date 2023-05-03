@@ -389,7 +389,7 @@ MonoBehaviour:
   speed: 0
   davidAnimator: {fileID: 486401302}
   m_camera: {fileID: 0}
-  rotationSpeed: 0
+  rotationSpeed: 45
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0

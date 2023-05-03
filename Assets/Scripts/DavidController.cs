@@ -8,7 +8,7 @@ using Cursor = UnityEngine.Cursor;
 
 public class DavidController : MonoBehaviour
 {
-    [SerializeField] private float speed = 1;
+    [SerializeField] private float speed;
     [SerializeField] private Animator davidAnimator;
     private static readonly int Speed = Animator.StringToHash("Speed");
     [SerializeField] private Camera m_camera;
@@ -17,6 +17,7 @@ public class DavidController : MonoBehaviour
 
     private void Start()
     {
+        
 
     }
 
@@ -30,6 +31,38 @@ public class DavidController : MonoBehaviour
     {
         Move(GetMovementInput());
         Rotate(GetRotationInput());
+
+        // Animations
+
+        // Running
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetAxis("Vertical") > 0)
+        {
+            davidAnimator.SetFloat(Speed, 2f);
+            speed = 4;
+        } else
+        {
+            speed = 1;
+        }
+        // Backwards
+        if (Input.GetAxis("Vertical") < 0)
+        {
+            davidAnimator.SetFloat(Speed, -0.1f);
+        } else
+        {
+           
+        }
+        
+        // Crouching
+        if (Input.GetKey(KeyCode.LeftControl)) {
+
+            davidAnimator.SetBool("isCrouched", true);
+            speed = 0;
+        } else
+        {
+            davidAnimator.SetBool("isCrouched", false);
+        }
+
+
     }
 
     private void Rotate(Vector2 p_scrollDelta)
@@ -52,7 +85,7 @@ public class DavidController : MonoBehaviour
         
     }
 
-    private void Move(Vector3 p_inputMovement)
+    public void Move(Vector3 p_inputMovement)
     {
         var transform1 = transform;
         transform1.position += (p_inputMovement.z * transform1.forward + p_inputMovement.x * transform1.right) *
