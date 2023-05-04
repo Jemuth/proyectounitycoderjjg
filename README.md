@@ -21,3 +21,7 @@ refugiarse y objetos que lo ayudaran en su objetivo.
 1. Configuracion de personaje protagonista(modelo y animaciones Mixamo).
 2. Creacion de script de movimiento basico.
 3. Implementacion de animation controller con animaciones correspondientes al movimiento.
+4. Configuracion de iluminacion de escena y Skybox de ambientacion
+5. Integracion de escena y elementos decorativos(prefabs), con sus respectivas texturas
+6. Implementacion de NPC, con sus respectivas animaciones
+7. Creacion de script de patrullaje para NPC, con su respectivo switch para configurar tipo de enemigo(velocidad) y corrutinas para temporizacion
