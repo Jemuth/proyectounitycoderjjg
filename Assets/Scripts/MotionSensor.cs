@@ -7,6 +7,7 @@ public class MotionSensor : MonoBehaviour
     
     public Light myLight;
     bool isPlayerInside;
+    bool isEnemyInside;
 
     void Start()
     {
@@ -17,6 +18,10 @@ public class MotionSensor : MonoBehaviour
 
     private void OnTriggerEnter(Collider character)
     {
+        if (character.gameObject.CompareTag("Enemy"))
+        {
+            isEnemyInside = true;
+        }
         if (character.gameObject.CompareTag("Player"))
         {
             isPlayerInside = true;
@@ -28,16 +33,22 @@ public class MotionSensor : MonoBehaviour
         {
             isPlayerInside = false;   
         }
+        if (character.gameObject.CompareTag("Enemy"))
+        {
+            isEnemyInside = false;
+        }
     }
+
     private void Update()
     {
-        if (isPlayerInside == true) 
+        if (isPlayerInside == true || isEnemyInside == true) 
         {
             myLight.enabled = true;
         } else
         {
             myLight.enabled = false;
         }
+
     }
 
 }
