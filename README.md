@@ -12,6 +12,8 @@ refugiarse y objetos que lo ayudaran en su objetivo.
 
 **Resumen primera entrega**
 
+![](https://github.com/Jemuth/proyectounitycoderjjg/blob/main/gifs/entrega1.gif)
+
 Se implemento acorde a los requisitos de entrega:
 
 - Inputs basicos de movimiento para el jugador, opcion de correr al presionar tecla y funcion de agacharse para futuras mecanicas.
