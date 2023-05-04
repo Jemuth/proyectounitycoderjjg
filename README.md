@@ -14,16 +14,16 @@ refugiarse y objetos que lo ayudaran en su objetivo.
 
 Se implemento acorde a los requisitos de entrega:
 
-. Inputs basicos de movimiento para el jugador, opcion de correr al presionar tecla y funcion de agacharse para futuras mecanicas.
-. Personajes con animaciones: Animaciones de jugador y enemigo.
-. Sistema de camaras: Jugador con camera de seguimiento en tercera persona.
-. Luces: Skybox, luz direccional y luces de ambientacion.
-. Objetos con materiales: Escena y objetos de decoracion con sus respectivas texturas.
-. Prefabs: Jugador, enemigos y objetos en la escena.
-. Calculos vectoriales: Implementacion de sistema de patrullaje rudimentario para el enemigo.
-. 1 caso de switch: Switch para determinar el tipo de enemigo el cual afecta su velocidad.
-. 2 casos de temporizadores: Corrutina para determinar tiempo de patrullaje de enemigo. Sistema de stamina para jugador.
-. 3 tipo de colisiones: Colliders para jugador, enemigo y objetos en escena. Sistema de colision para luz de deteccion de movimiento.
+- Inputs basicos de movimiento para el jugador, opcion de correr al presionar tecla y funcion de agacharse para futuras mecanicas.
+- Personajes con animaciones: Animaciones de jugador y enemigo.
+- Sistema de camaras: Jugador con camera de seguimiento en tercera persona.
+- Luces: Skybox, luz direccional y luces de ambientacion.
+- Objetos con materiales: Escena y objetos de decoracion con sus respectivas texturas.
+- Prefabs: Jugador, enemigos y objetos en la escena.
+- Calculos vectoriales: Implementacion de sistema de patrullaje rudimentario para el enemigo.
+- 1 caso de switch: Switch para determinar el tipo de enemigo el cual afecta su velocidad.
+- 2 casos de temporizadores: Corrutina para determinar tiempo de patrullaje de enemigo. Sistema de stamina para jugador.
+- 3 tipo de colisiones: Colliders para jugador, enemigo y objetos en escena. Sistema de colision para luz de deteccion de movimiento.
 
 **Controles de jugador**
 
