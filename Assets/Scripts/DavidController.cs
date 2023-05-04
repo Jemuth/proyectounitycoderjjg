@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -13,12 +14,27 @@ public class DavidController : MonoBehaviour
     private static readonly int Speed = Animator.StringToHash("Speed");
     [SerializeField] private Camera m_camera;
     [SerializeField] private float rotationSpeed = 45;
+    [SerializeField] private float stamina;
+    [SerializeField] private float maxStamina;
+    public float staminaRate;
+    private bool canRun;
+    private bool mustRecover;
+    private bool canRecover;
+
 
 
     private void Start()
     {
-        
+        maxStamina = 5;
+        stamina = maxStamina;
+        staminaRate = 1;
+        mustRecover = false;
+        canRecover = true;
 
+    }
+    private void IncreaseStamina()
+    {
+            stamina += staminaRate * Time.deltaTime; 
     }
 
     private void OnApplicationFocus(bool hasFocus)
@@ -27,22 +43,61 @@ public class DavidController : MonoBehaviour
         Cursor.lockState = hasFocus ? CursorLockMode.None : CursorLockMode.Confined;
     }
 
+    private void RunningCooldown()
+    {
+        if(mustRecover == true)
+        {
+            canRecover = false;
+            Invoke("Recover", 4.5f);
+        }
+    }
+    private void Recover()
+    {
+        canRecover = true;
+        mustRecover = false;
+    }
+
     void Update()
     {
+        // Stamina 
+
+        RunningCooldown();
+
+
+        if (stamina < maxStamina && canRecover == true)
+        {
+            IncreaseStamina();
+        }
+        if (stamina <= 1)
+        {
+            mustRecover = true;
+            canRun = false;
+
+        } else
+        {
+            canRun = true;
+        }
+
+
         Move(GetMovementInput());
         Rotate(GetRotationInput());
 
         // Animations
 
         // Running
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetAxis("Vertical") > 0)
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetAxis("Vertical") > 0 && canRun == true)
         {
             davidAnimator.SetFloat(Speed, 2f);
-            speed = 3;
+            speed = 1.8f;
+            stamina -= (staminaRate * 2) * Time.deltaTime;
+
         } else
         {
-            speed = 1;
+            speed = 0.8f;
         }
+        // Running Cooldown 
+        
+
         // Backwards
         if (Input.GetAxis("Vertical") < 0)
         {
