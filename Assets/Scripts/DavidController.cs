@@ -38,7 +38,7 @@ public class DavidController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetAxis("Vertical") > 0)
         {
             davidAnimator.SetFloat(Speed, 2f);
-            speed = 4;
+            speed = 3;
         } else
         {
             speed = 1;
